@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.appvenda.model.domain.Colecionavel;
 import br.edu.infnet.appvenda.model.domain.Jogo;
 import br.edu.infnet.appvenda.model.domain.Produto;
+import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
 
 @Order(2)
@@ -48,6 +49,11 @@ public class ProdutoLoader implements ApplicationRunner {
 				jogo.setDiretor(campos[5]);
 				jogo.setDigital(Boolean.valueOf(campos[6]));
 				
+				Vendedor vendedor = new Vendedor();
+				vendedor.setId(Integer.valueOf(campos[7]));
+				
+				jogo.setVendedor(vendedor);
+				
 				produtoService.incluir(jogo);
 				
 				break;
@@ -61,6 +67,10 @@ public class ProdutoLoader implements ApplicationRunner {
 				colecionavel.setFornecedor(campos[4]);
 				colecionavel.setMaterial(campos[5]);
 				colecionavel.setAutenticado(Boolean.valueOf(campos[6]));
+				
+				vendedor.setId(Integer.valueOf(campos[7]));
+				
+				colecionavel.setVendedor(vendedor);
 				
 				produtoService.incluir(colecionavel);
 				

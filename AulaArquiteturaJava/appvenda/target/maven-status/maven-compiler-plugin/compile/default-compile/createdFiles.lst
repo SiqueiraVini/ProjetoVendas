@@ -1,0 +1,13 @@
+br\edu\infnet\appvenda\model\domain\Produto.class
+br\edu\infnet\appvenda\model\service\ColecionavelService.class
+br\edu\infnet\appvenda\ColecionavelLoader.class
+br\edu\infnet\appvenda\model\service\VendedorService.class
+br\edu\infnet\appvenda\model\domain\Vendedor.class
+br\edu\infnet\appvenda\model\domain\Colecionavel.class
+br\edu\infnet\appvenda\VendedorLoader.class
+br\edu\infnet\appvenda\model\service\JogoService.class
+br\edu\infnet\appvenda\AppvendaApplication.class
+br\edu\infnet\appvenda\JogoLoader.class
+br\edu\infnet\appvenda\model\service\ProdutoService.class
+br\edu\infnet\appvenda\ProdutoLoader.class
+br\edu\infnet\appvenda\model\domain\Jogo.class

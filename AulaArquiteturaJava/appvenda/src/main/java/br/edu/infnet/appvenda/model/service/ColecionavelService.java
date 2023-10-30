@@ -1,24 +1,25 @@
 package br.edu.infnet.appvenda.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appvenda.model.domain.Colecionavel;
+import br.edu.infnet.appvenda.model.repository.ColecionavelRepository;
 
 @Service
 public class ColecionavelService {
 
-	private Map<Integer, Colecionavel> mapaColecionavel = new HashMap<Integer, Colecionavel>();
+	@Autowired
+	private ColecionavelRepository colecionavelRepository;
 	
 	public void incluir (Colecionavel colecionavel) {
-		mapaColecionavel.put(colecionavel.getCodigo(), colecionavel);
+		colecionavelRepository.save(colecionavel);
 	}
 
 	public Collection<Colecionavel> obterLista(){
-		return mapaColecionavel.values();
+		return (Collection<Colecionavel>) colecionavelRepository.findAll();
 	}
 	
 }

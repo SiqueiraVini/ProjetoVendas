@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appvenda.model.domain.Colecionavel;
+import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ColecionavelService;
 
 @Order(4)
@@ -42,6 +43,11 @@ public class ColecionavelLoader implements ApplicationRunner {
 			colecionavel.setFornecedor(campos[4]);
 			colecionavel.setMaterial(campos[5]);
 			colecionavel.setAutenticado(Boolean.valueOf(campos[6]));
+			
+			Vendedor vendedor = new Vendedor();
+			vendedor.setId(Integer.valueOf(campos[7]));
+			
+			colecionavel.setVendedor(vendedor);
 						
 			colecionavelService.incluir(colecionavel);
 			
