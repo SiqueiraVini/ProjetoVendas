@@ -22,4 +22,9 @@ public class ColecionavelService {
 		return (Collection<Colecionavel>) colecionavelRepository.findAll();
 	}
 	
+	public long obterQtde() {
+		return colecionavelRepository.count();
+	}
+	
+	
 }

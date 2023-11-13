@@ -19,12 +19,24 @@ public class ProdutoService {
 		produtoRepository.save(produto);
 	}
 
+	public void excluir(Integer id) {
+		produtoRepository.deleteById(id);
+	}
+	
 	public Collection<Produto> obterLista(){
 		return (Collection<Produto>) produtoRepository.findAll();
 	}
 	
-	public Collection<Produto> obterLista(Vendedor vendedor){
+	public Collection<Produto> obterLista(Vendedor vendedor){	
 		return (Collection<Produto>) produtoRepository.obterLista(vendedor.getId());
+	}
+	
+	public Collection<Produto> obterLista(Integer id){	
+		return (Collection<Produto>) produtoRepository.obterLista(id);
+	}
+	
+	public long obterQtde() {
+		return produtoRepository.count();
 	}
 	
 }

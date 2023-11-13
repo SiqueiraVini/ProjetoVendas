@@ -22,4 +22,8 @@ public class JogoService {
 		return (Collection<Jogo>) jogoRepository.findAll();
 	}
 	
+	public long obterQtde() {
+		return jogoRepository.count();
+	}
+	
 }
