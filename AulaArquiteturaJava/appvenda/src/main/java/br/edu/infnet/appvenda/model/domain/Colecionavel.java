@@ -2,11 +2,14 @@ package br.edu.infnet.appvenda.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "TColecionavel")
 public class Colecionavel extends Produto {
+	@Size(min = 2, max = 50, message = "O fornecedor deve ter entre {min} e {max} caracteres")
 	private String fornecedor;
+	@Size(min = 2, max = 50, message = "O material deve ter entre {min} e {max} caracteres")
 	private String material;
 	private boolean autenticado;
 	

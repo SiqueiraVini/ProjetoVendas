@@ -14,6 +14,7 @@ import br.edu.infnet.appvenda.model.domain.Jogo;
 import br.edu.infnet.appvenda.model.domain.Produto;
 import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
+import br.edu.infnet.appvenda.model.service.VendedorService;
 
 @Order(2)
 @Component
@@ -22,7 +23,9 @@ public class ProdutoLoader implements ApplicationRunner {
 	@Autowired
 	private ProdutoService produtoService;
 
-		
+	@Autowired
+	private VendedorService vendedorService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
@@ -32,6 +35,8 @@ public class ProdutoLoader implements ApplicationRunner {
 		String linha = leitura.readLine();
 
 		String[] campos = null;
+		
+		Vendedor vendedor = new Vendedor();
 
 		while(linha != null) {
 			
@@ -49,7 +54,7 @@ public class ProdutoLoader implements ApplicationRunner {
 				jogo.setDiretor(campos[5]);
 				jogo.setDigital(Boolean.valueOf(campos[6]));
 				
-				Vendedor vendedor = new Vendedor();
+
 				vendedor.setId(Integer.valueOf(campos[7]));
 				
 				jogo.setVendedor(vendedor);
@@ -82,9 +87,11 @@ public class ProdutoLoader implements ApplicationRunner {
 			linha = leitura.readLine();
 		}
 
-		for(Produto produto: produtoService.obterLista()) {
-			System.out.println("[Produto] " + produto);			
-		}
+		for(Vendedor v : vendedorService.obterLista()) {
+			for(Produto produto : produtoService.obterLista(v) ) {
+				System.out.println("[Produto] " + produto);				
+			}			
+		}	
 		
 		leitura.close();
 	}
