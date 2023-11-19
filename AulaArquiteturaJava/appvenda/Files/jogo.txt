@@ -1,4 +1,0 @@
-homem aranha 2;101;300;true;ACtivision;Raimi;false
-elden ring;102;105;false;Blizard;Kojima;false
-gow;103;50;false;Sony;Mark;true
-uncharted;104;200;true;Santa Monica;Mark;true
